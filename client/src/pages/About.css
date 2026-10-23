@@ -1,0 +1,144 @@
+.about-page {
+  min-height: 80vh;
+}
+
+.about-container {
+  width: min(100% - 48px, 760px);
+  margin: 0 auto;
+  padding: 38px 0 100px;
+}
+
+.about-back-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.about-back-link:hover {
+  color: var(--accent);
+}
+
+.about-header {
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-eyebrow {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-header h1 {
+  margin: 22px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.about-header h1 span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.about-intro {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.about-section {
+  padding: 42px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-section h2 {
+  margin: 0 0 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+}
+
+.about-section > p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2;
+}
+
+.about-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 0;
+  margin: 28px 0 0;
+  list-style: none;
+}
+
+.about-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.about-list li > span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  padding-top: 3px;
+}
+
+.about-list strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.about-list p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.about-writing-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-writing-link:hover {
+  color: var(--accent-hover);
+}
+
+@media (max-width: 600px) {
+  .about-container {
+    width: calc(100% - 32px);
+    padding-bottom: 64px;
+  }
+
+  .about-header {
+    padding: 52px 0 38px;
+  }
+
+  .about-header h1 {
+    letter-spacing: -1px;
+  }
+
+  .about-intro {
+    font-size: 15px;
+  }
+
+  .about-section {
+    padding: 32px 0;
+  }
+
+  .about-section h2 {
+    font-size: 26px;
+  }
+}

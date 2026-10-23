@@ -1,0 +1,124 @@
+.hero {
+  width: min(100% - 48px, 1120px);
+  margin: 0 auto;
+  padding: 34px 0 80px;
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4.8vw, 58px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-description {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--page-bg);
+  text-decoration: none;
+  font-size: 14px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-primary-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.hero-secondary-btn {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero-secondary-btn:hover {
+  color: var(--accent);
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 90px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hero-note-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    width: calc(100% - 32px);
+    padding: 56px 0 48px;
+  }
+
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 40px);
+    letter-spacing: 0;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .hero-note {
+    margin-top: 64px;
+    line-height: 1.7;
+  }
+}
