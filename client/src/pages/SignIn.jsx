@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Code2, ArrowRight } from "lucide-react";
 import api from "../api/axios";
-import "../styles/Auth.css";
+import "../styles/auth.css";
 
 export default function SignIn() {
   const navigate = useNavigate();
