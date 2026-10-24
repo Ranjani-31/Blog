@@ -14,20 +14,13 @@ dns.setDefaultResultOrder("ipv4first");
 dns.setServers(["8.8.8.8"]);
 
 const app = express();
-const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.CLIENT_URL,
-].filter(Boolean);
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error(`Origin not allowed by CORS: ${origin}`));
-    },
+     origin: [
+      "http://localhost:5173",
+      "https://blog-omega-three-63.vercel.app",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
