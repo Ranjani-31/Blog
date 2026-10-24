@@ -216,7 +216,7 @@ const deletePost = asyncHandler(async (req, res) => {
   }
 
   const post = await Post.findByIdAndDelete(req.params.id);
-  await deleteFromCloudinary(post.image)
+  await deleteFromCloudinary(post.image.url)
   if (!post) {
     throw new AppError("Post not found", 404);
   }
