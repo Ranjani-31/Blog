@@ -14,13 +14,23 @@ dns.setDefaultResultOrder("ipv4first");
 dns.setServers(["8.8.8.8"]);
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL,
+].filter(Boolean);
 
 app.use(
   cors({
-    origin:  process.env.CLIENT_URL,
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`Origin not allowed by CORS: ${origin}`));
+    },
+    credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
   })
 );
 
