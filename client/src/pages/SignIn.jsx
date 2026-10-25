@@ -41,7 +41,7 @@ export default function SignIn() {
         email: form.email.trim(),
         password: form.password,
       });
-
+localStorage.setItem("isAuthenticated", "true");
       // The backend sets the HTTP-only authentication cookie.
       navigate("/admin", { replace: true });
     } catch (err) {

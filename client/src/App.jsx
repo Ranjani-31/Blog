@@ -1,50 +1,62 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import About from "./pages/About";
+import ThemeProvider from "./ThemeProvider";
+
+import MainLayout from "./components/MainLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 import Home from "./pages/Home";
+import About from "./pages/About";
 import BlogDetails from "./pages/BlogDetails";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 import AdminDashboard from "./pages/AdminDashboard";
 import NewPost from "./pages/NewPost";
-import ThemeProvider from "./ThemeProvider";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp"
-
-function AboutPage() {
-  return (
-    <>
-      <Navbar />
-      <About />
-      <Footer />
-    </>
-  );
-}
-
-function ArticlePage() {
-  return (
-    <>
-      <Navbar />
-      <BlogDetails />
-      <Footer />
-    </>
-  );
-}
 
 function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path="/signin" element={<SignIn/>} />
+          {/* Public routes without the main layout */}
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/blog/:slug" element={<ArticlePage />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/new" element={<NewPost />} />
-          <Route path="/admin/edit/:slug" element={<NewPost />} />
+          {/* Public routes with Navbar and Footer */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog/:slug" element={<BlogDetails />} />
+          </Route>
+
+          {/* Protected admin routes */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/new"
+            element={
+              <ProtectedRoute>
+                <NewPost />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/admin/edit/:slug"
+            element={
+              <ProtectedRoute>
+                <NewPost />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

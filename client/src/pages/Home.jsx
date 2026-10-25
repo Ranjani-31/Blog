@@ -96,7 +96,7 @@ function Home() {
 
   return (
     <>
-      <Navbar />
+     
       <main>
         <Hero />
         <div className="content-wrap">
@@ -128,7 +128,7 @@ function Home() {
           />
         </div>
       </main>
-      <Footer />
+      
     </>
   );
 }

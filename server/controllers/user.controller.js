@@ -85,8 +85,8 @@ const login = asyncHandler(async (req, res) => {
 // GET /user/me
 // Requires authentication middleware.
 const getMe = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user.userId).select("name email");
-
+  const user = await User.findById(req.user._id).select("name email");
+console.log(req.user)
   if (!user) {
     throw new AppError("User no longer exists", 401);
   }
